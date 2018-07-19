@@ -34,8 +34,13 @@
                 background-color: #38a;
             }
         </style>
-
-        <script>
+    </head>
+    <body>
+        <div id="quiz"></div>
+        <button id="submit">Submit</button>
+        <div id="results"></div>
+    </body>
+    <script>
 
             // wrapped in IIFE (Immediately invoked function expression) to prevent this code clashing with any other scripts in global scope.
             (function() {
@@ -106,7 +111,6 @@
                 const quizContainer = document.getElementById("quiz");
                 const resultsContainer = document.getElementById("results");
                 const submitButton = document.getElementById("submit");
-                
                 const myQuestions = [
                     {
                     question: "Who is the strongest?",
@@ -138,18 +142,12 @@
                     }
                 ];
 
-                // display quiz right away
-                buildQuiz();
+            // display quiz right away
+            buildQuiz();
 
-                // on submit, show results
-                submitButton.addEventListener("click", showResults);
-            })();
+            // on submit, show results
+            submitButton.addEventListener("click", showResults);
+        })();
             
         </script>
-    </head>
-    <body>
-        <div id="quiz"></div>
-        <button id="submit">Submit</button>
-        <div id="results"></div>
-    </body>
 </html>
