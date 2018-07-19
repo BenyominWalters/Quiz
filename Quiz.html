@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Quiz Page</title>
+        <script>
+        
+            const quizContainer = document.getElementById('quiz');
+            const resultsContainer = document.getElementById('results');
+            const submitButton = document.getElementById('sumbit');
+
+            function buildQuiz(){
+
+                // A place to store the HTML output
+                const output = [];
+
+                // for each question...
+                myQuestions.forEach(
+                    (currentQuestion, questionNumber) => {
+
+                        // a place to store the list of answer choices
+                        const answers = [];
+
+                        // for each available answer...
+                        for(letter in currentQuestion.answers)
+
+                        // ...add an HTML radio button
+                        answers.push(
+                            `<label>
+                            <input type="radio" name="question${questionNumber}" value="${letter}">
+                                ${letter} :
+                                ${currentQuestion.answers[letter]}
+                            </label>`
+                        );
+                    }
+                );
+
+                // finally combine our output list into one string of HTML and put in on the page
+                quizContainer.innerHTML = output.join('');
+            }
+
+            function showResults(){}
+
+            // We call the function to display the quiz right away
+            buildQuiz();
+
+            // On submit, show results of quiz.
+            submitButton.addEventListener('click', showResults);
+
+            const myQuestions = [
+                {
+                    question: "What does אמר mean?",
+                    answers: {
+                        a: "walk",
+                        b: "say",
+                        c: "water"
+                    },
+                    correctAnswer: "b"
+                },
+                {
+                    question: "What does הלך mean?",
+                    answers: {
+                        a: "walk",
+                        b: "say",
+                        c: "water"
+                    },
+                    correctAnswer: "a"
+                },
+                {
+                    question: "What does מים mean?",
+                    answers: {
+                        a: "walk",
+                        b: "say",
+                        c: "water"
+                    },
+                    correctAnswer: "c"
+                }
+            ];
+
+        </script>
+    </head>
+    <body>
+        <div id="quiz"></div>
+        <button id="submit">Submit</button>
+        <div id="results"></div>
+    </body>
+</html>
